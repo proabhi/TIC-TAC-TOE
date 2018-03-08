@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Tic Tac Toe </title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:600|Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+  </head>
+  <body onload="start()">
+    <div >
+      <h1 id="head"> TIC TAC TOE</h1>
+      <div id ="nav" class="navbar navbar-default">
+
+        <h3 id="message"> </h3>
+        <button id ="reset_game"> Clear board</button>
+      </div>
+      <div class="container">
+        <table id="main">
+        <tr>
+          <td class="sq" id="s1"></td>
+          <td class="sq" id="s2"></td>
+          <td class="sq" id="s3"></td>
+        </tr>
+        <tr>
+          <td class="sq"  id="s4"></td>
+          <td class="sq"  id="s5"></td>
+          <td class="sq"  id="s6"></td>
+        </tr>
+        <tr>
+          <td class="sq"  id="s7"></td>
+          <td class="sq"  id="s8"></td>
+          <td class="sq"  id="s9"></td>
+        </tr>
+      </table>
+      <div class="record">
+        <div>
+          <h1> <span id="fir"> 0 </span> to<span id="sec"> 0 </span></h1>
+        </div>
+        <div>
+          <h4> The wining target is <span id=reach> 0</span></h4>
+        </div>
+        <div>
+          <input id= "foam" type="number" >
+          <h6> enter the range</h6>
+        </div>
+        <div>
+          <button class =" btn btn-primary" id="first" > player 1</button>
+          <button class =" btn btn-primary"  id="second" > player 2</button>
+          <button class =" btn btn-danger" id="resetprimary" > reset</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="behavior.js"></script>
+  </body>
+</html>
