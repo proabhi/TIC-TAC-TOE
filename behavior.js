@@ -27,7 +27,7 @@ var total=0;
 var game_end=false;
 realtask();
 function realtask(){
-  for (var i = 0; i < 9; i++) {
+  for (var i =0; i < 9; i++) {
   some[i].addEventListener("click",function dotask () {
       if ((this.innerHTML=="")&&(game_end==false)){
         if(chance=="X"){
@@ -103,45 +103,63 @@ clearboard.addEventListener("click", function() {
     c.classList.add("new");
     return true;
   }
-
  }
 
 //creating an eventlistener for the given input behaviour
-userinput.value="";
-numinput.addEventListener("change",function(){
-  sum=numinput.value;
-  range.textContent=sum;
-  range.classList.add("xum");
-});
+user();
+function user(){
+  numinput.addEventListener("change",function(){
+    sum=numinput.value;
+    range.textContent=sum;
+    range.classList.add("xum");
+  });
+}
 
+butt(p1button,p1display,p1score);
+butt(p2button,p2display,p2score);
+function butt(button_name,button_disp,button_score){
+  button_name.addEventListener("click",function(){
+    if(sum>0){
+      if(!gameover){
+        button_score++;
+        button_disp.textContent=button_score;
+        if(button_score==sum){
+          button_disp.classList.add("xum");
+          gameover=true;
+        }
+      }
+    }
+  });
+}
 //creating an eventlistener for the "player 1"  button behaviour
-p1button.addEventListener("click",function(){
-  if(sum>0){
-    if(!gameover){
-      p1score++;
-      p1display.textContent=p1score;
-      if(p1score==sum){
-        p1display.classList.add("xum");
-        gameover=true;
-      }
-    }
-  }
-});
-//creating an eventlistener for the "player 2" button behaviour
-p2button.addEventListener("click",function(){
-  if(sum>0){
-    if(!gameover){
-      p2score++;
-      p2display.textContent=p2score;
-      if(p2score==sum){
-        p2display.classList.add("xum");
-        gameover=true;
-      }
-    }
-  }
-});
+// p1button.addEventListener("click",function(){
+//   if(sum>0){
+//     if(!gameover){
+//       p1score++;
+//       p1display.textContent=p1score;
+//       if(p1score==sum){
+//         p1display.classList.add("xum");
+//         gameover=true;
+//       }
+//     }
+//   }
+// });
+// //creating an eventlistener for the "player 2" button behaviour
+// p2button.addEventListener("click",function(){
+//   if(sum>0){
+//     if(!gameover){
+//       p2score++;
+//       p2display.textContent=p2score;
+//       if(p2score==sum){
+//         p2display.classList.add("xum");
+//         gameover=true;
+//       }
+//     }
+//   }
+// });
 //creating an eventlistener for the "reset" button behaviour
 resetbutton.addEventListener("click",function(){
+  user();
   gameover=false;
   p1display.classList.remove("xum");
   p2display.classList.remove("xum");
@@ -149,4 +167,7 @@ resetbutton.addEventListener("click",function(){
   range.classList.remove("xum");
   p1score=range=p2score=p1display.textContent=p2display.textContent=0;
   userinput.value="";
+  butt(p1button,p1display,p1score);
+  butt(p2button,p2display,p2score);
+
 });
