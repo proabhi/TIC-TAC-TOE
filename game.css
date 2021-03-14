@@ -12,8 +12,6 @@ td{
   border: 6px solid black;
   transition: all 5s ease-out;
   border-style: double;
-
-
 }
 tr{
   width: 360px;
